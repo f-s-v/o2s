@@ -1,0 +1,20 @@
+Store
+  Bad examples:
+    http://supply-electronics.myshopify.com/
+  Good Examples:
+    http://native-theme.myshopify.com/
+    http://startup-theme-cloth.myshopify.com/
+  Large pictures
+  ? Some items on welcome page
+  Simple catalogue separated by item types
+  Bright item page (combined promo page, lookbook images and add-to-cart service)
+  Simple payments
+  No users
+  Orders and payments administration
+Pages
+  Page editor
+  No navigation editor
+? Blog
+  Post as page
+Timeline
+  ? Items groupped by collections ordered by date

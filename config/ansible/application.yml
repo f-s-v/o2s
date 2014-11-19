@@ -1,0 +1,18 @@
+---
+- name: Bootstrap base box
+  user: root
+  hosts: application
+  roles:
+    - f-s-v.railsbox-image
+- name: Install rails box for o2s application
+  hosts: application
+  user: "{{ railsbox_user }}"
+  roles:
+    - role: f-s-v.postgresql-database
+      psql_db_name: o2s_production
+      psql_version: 9.4
+      psql_owner: "{{ railsbox_user }}"
+    - f-s-v.railsbox-rails-application  
+    - f-s-v.railsbox-bower-runtime
+    - f-s-v.railsbox-foreman-services
+    - f-s-v.railsbox-nginx-upstream-rails-application

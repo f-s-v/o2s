@@ -1,0 +1,16 @@
+{
+  "name": "o2s",
+  "version": "0.0.0",
+  "homepage": "https://github.com/f-s-v/o2s",
+  "authors": [
+    "Vadim Rastyagaev <rastyagaev@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

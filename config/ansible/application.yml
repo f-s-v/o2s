@@ -12,7 +12,7 @@
       psql_db_name: o2s_production
       psql_version: 9.3
       psql_owner: "{{ railsbox_user }}"
-    - f-s-v.railsbox-rails-application  
     - f-s-v.railsbox-bower-runtime
+    - f-s-v.railsbox-rails-application  
     - f-s-v.railsbox-foreman-services
     - f-s-v.railsbox-nginx-upstream-rails-application

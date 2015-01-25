@@ -33,6 +33,7 @@ gem 'unicorn'
 
 group :development do
   # Use Capistrano for deployment
+  gem 'capistrano', '~> 3.2.1'
   gem 'capistrano-rails'
   gem 'capistrano-bower'
   gem 'capistrano-secrets'

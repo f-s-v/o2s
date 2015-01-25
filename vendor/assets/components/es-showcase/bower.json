@@ -1,0 +1,23 @@
+{
+  "name": "es-showcase",
+  "version": "0.0.0",
+  "description": "no description",
+  "license": "MIT",
+  "main": "dist/es-showcase.html",
+  "keywords": [
+    "polymer",
+    "web-components"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.4",
+    "core-image": "Polymer/core-image#~0.5.4",
+    "aux-layers": "aux-elements/aux-layers#~0.0.0",
+    "google-youtube": "googlewebcomponents/google-youtube#~1.0.1",
+    "backgroundCheck": "~1.2.2"
+  }
+}

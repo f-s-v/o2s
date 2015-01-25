@@ -1,0 +1,16 @@
+<!--
+  = require aux-uploadcare-image/aux-uploadcare-image
+-->
+<polymer-element name="o2s-slide-image" attributes="imageid" noscript>
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      :host img {
+        max-width: 100%;
+      }
+    </style>
+    <img is="aux-uploadcare-image" uuid="{{imageid}}" modifiers="progressive/yes/-/scale_crop/1440x900" class="background-image">
+  </template>
+</polymer-element>

@@ -1,0 +1,22 @@
+<polymer-element name="aux-uploadcare-image" attributes="uuid modifiers" extends="img">
+  <script>
+    Polymer({
+      observe: {
+        uuid: 'setSrc',
+        modifiers: 'setSrc'
+      },
+      setSrc: function(){
+        var src
+        if (this.uuid.indexOf('http') == 0)
+          src = this.uuid
+        else
+          src = "http://www.ucarecdn.com/" + this.uuid + "/"
+
+        if (this.modifiers)
+          src += '-/' + this.modifiers + '/'
+
+        this.src = src
+      }
+    })
+  </script>
+</polymer-element>

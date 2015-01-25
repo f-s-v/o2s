@@ -1,0 +1,22 @@
+{
+  "name": "aux-layout",
+  "version": "0.0.1",
+  "description": "Grid Layout Element",
+  "license": "MIT",
+  "main": "dist/aux-layout.html",
+  "keywords": [
+    "polymer",
+    "web-components"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.1"
+  },
+  "devDependencies": {
+    "paper-slider": "Polymer/paper-slider#~0.5.2"
+  }
+}

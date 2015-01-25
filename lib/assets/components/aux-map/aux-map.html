@@ -1,0 +1,18 @@
+<polymer-element name="aux-map" attributes="input expression">
+  <script>
+    Polymer({
+      observe: {
+        'input': 'generateObjects',
+        'expression': 'generateObjects'
+      },
+      generateObjects: function(){
+        this.objects = []
+        if (this.input && this.input.map) {
+          this.objects = this.input.map(function(element){
+            return eval(this.expression)
+          }.bind(this))
+        }
+      }
+    })
+  </script>
+</polymer-element>

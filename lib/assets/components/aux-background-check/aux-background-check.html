@@ -1,0 +1,9 @@
+<polymer-element name="aux-background-check" attributes="targets images">
+  <script>
+    Polymer({
+      ready: function() {
+        BackgroundCheck.init({targets: this.targets, images: this.images})
+      }
+    })
+  </script>
+</polymer-element>

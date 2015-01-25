@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root to: 'showcase#index'
+
+  namespace :store do
+    resources :products
+    mount EssentialSelling::Engine => "/"
+  end
 end

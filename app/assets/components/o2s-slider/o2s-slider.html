@@ -1,0 +1,73 @@
+<!--
+  = require aux-pages/aux-pages
+  = require core-image/core-image
+  = require aux-range/aux-range
+  = require o2s-slide-image/o2s-slide-image
+-->
+
+<polymer-element name="o2s-slider" attributes="ids">
+  <template>
+    <style>
+      :host {
+        display: block;
+        position: relative;
+      }
+      :host img {
+        max-width: 100%;
+      }
+
+      :host menu {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        position: absolute;
+        bottom: 15%;
+        width: 100%;
+        text-align: center;
+      }
+
+      :host menu li {
+        display: inline-block;
+        cursor: pointer;
+        border-color: yellow;
+        border-style: solid;
+        border-left-width: 5px;
+        border-bottom-width: 7px;
+        border-radius: 100%;
+        line-height: 15px;
+        height: 15px;
+        width: 15px;
+        vertical-align: top;
+      }
+
+      :host menu li.current {
+        background: gold;
+      }
+
+    </style>
+    <aux-pages selected="0" id="pages">
+      <template repeat="{{ids as imageid}}">
+        <o2s-slide-image imageid="{{imageid}}"></o2s-slide-image>
+      </template>
+    </aux-pages>
+
+    <aux-range id="range" stop="{{ids.length}}"></aux-range>
+
+    <menu>
+      <template repeat="{{$.range.collection as index}}">
+        <li on-click="{{onSlide}}" data-index="{{index}}" class="{{ {current: index == $.pages.selected} | tokenList }}">
+          <template if="{{index == $.pages.selected}}"></template>
+        </li>
+      </template>
+    </menu>
+  </template>
+
+  <script>
+    Polymer({
+      onSlide: function(event) {
+        this.$.pages.selected = event.target.dataset.index
+      }
+    })
+  </script>
+</polymer-element>

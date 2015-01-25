@@ -1,0 +1,32 @@
+{
+  "name": "es-showcase",
+  "description": "no description",
+  "license": "MIT",
+  "main": "dist/es-showcase.html",
+  "keywords": [
+    "polymer",
+    "web-components"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.4",
+    "core-image": "Polymer/core-image#~0.5.4",
+    "aux-layers": "aux-elements/aux-layers#~0.0.0",
+    "google-youtube": "googlewebcomponents/google-youtube#~1.0.1",
+    "backgroundCheck": "~1.2.2"
+  },
+  "homepage": "https://github.com/essential-selling/es-showcase",
+  "_release": "2b16e85a80",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "2b16e85a80735b65ddefc8131b807e91ce7c0844"
+  },
+  "_source": "git://github.com/essential-selling/es-showcase.git",
+  "_target": "master",
+  "_originalSource": "essential-selling/es-showcase"
+}

@@ -1,0 +1,29 @@
+<!--
+= require core-selector/core-selector
+-->
+
+<polymer-element name="aux-pages" selected="0" extends="core-selector">
+  <template>
+  <style>
+  :host {
+    display: block;
+  }
+
+  polyfill-next-selector { content: ':host > *:not(.core-selected)'; }
+  ::content > *:not(.core-selected) {
+    display: none!important;
+  }
+
+  /*      polyfill-next-selector { content: ':host > .core-selected'; }
+  ::content > .core-selected {
+  display: flex;
+}
+*/    </style>
+<shadow></shadow>
+</template>
+<script>
+Polymer({
+
+});
+</script>
+</polymer-element>

@@ -1,0 +1,29 @@
+{
+  "name": "aux-layers",
+  "description": "HTML Elements as layers (Polymer based)",
+  "license": "MIT",
+  "main": "dist/aux-layers.html",
+  "keywords": [
+    "polymer",
+    "web-components"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.1",
+    "requestAnimationFrame-polyfill": "*"
+  },
+  "homepage": "https://github.com/aux-elements/aux-layers",
+  "_release": "0c80fa02b7",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "0c80fa02b7a75a4f58dc5c2961968be44bf8a1f8"
+  },
+  "_source": "git://github.com/aux-elements/aux-layers.git",
+  "_target": "master",
+  "_originalSource": "aux-elements/aux-layers"
+}

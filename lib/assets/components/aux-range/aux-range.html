@@ -1,0 +1,40 @@
+<polymer-element name="aux-range" attributes="stop collection">
+  <template>
+  <style>
+  :host {
+    display: none;
+  }
+  </style>
+</template>
+<script>
+  (function(){
+    // taken from underscore
+    var range = function(start, stop, step) {
+      if (arguments.length <= 1) {
+        stop = start || 0;
+        start = 0;
+      }
+      step = step || 1;
+
+      var length = Math.max(Math.ceil((stop - start) / step), 0);
+      var range = Array(length);
+
+      for (var idx = 0; idx < length; idx++, start += step) {
+        range[idx] = start;
+      }
+
+      return range;
+    }
+    
+    Polymer({
+      created: function(){
+        this.collection = []
+      },
+      stopChanged: function(){
+        this.collection = range(this.stop)
+      }
+    });
+  })()
+
+</script>
+</polymer-element>

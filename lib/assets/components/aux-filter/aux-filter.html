@@ -1,0 +1,40 @@
+<polymer-element name="aux-filter" attributes="input expression context">
+  <script>
+    Polymer({
+      created: function(){
+        this.context = {}
+        this.objects = []
+      },
+
+      observe: {
+        'input': 'updateObjects',
+        'expression': 'updateObjects'
+      },
+
+      updateObjects: function(){
+        if (this.input) {
+          this.objects = this.input.filter(this.filterMethod.bind(this))
+        }
+      },
+
+      filterMethod: function(element){
+        return eval(this.expression)
+      }
+    })
+  </script>
+</polymer-element>
+
+<polymer-element name="aux-filter-context" attributes="name value">
+  <script>
+    Polymer({
+      detached: function(){
+        delete this.parentElement.context[this.name]
+      },
+
+      valueChanged: function(){
+        this.parentElement.context[this.name] = this.value
+        this.parentElement.updateObjects()
+      }
+    })
+  </script>
+</polymer-element>

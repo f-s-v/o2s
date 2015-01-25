@@ -10,7 +10,23 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "vendor/assets/components",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "polymer": "~0.5.4"
+  },
+  "dependencies": {
+    "core-elements": "Polymer/core-elements#~0.5.4",
+    "normalize.css": "~3.0.2",
+    "underscore": "~1.7.0",
+    "backgroundCheck": "~1.2.2",
+    "aux-layout": "aux-elements/aux-layout#master",
+    "aux-layers": "aux-elements/aux-layers#master",
+    "es-showcase": "essential-selling/es-showcase#master"
+  },
+  "resolutions": {
+    "aux-layers": "master"
+  }
 }

@@ -1,0 +1,56 @@
+<polymer-element name="o2s-order-item" attributes="">
+  <script>
+    Polymer({
+      created: function(){
+        this.options = []
+      }
+    });
+  </script>
+</polymer-element>
+
+<template is="auto-binding">
+  <aux-resource id="resource" url="<%= store_product_url(resource) %>"></aux-resource>
+
+  <o2s-order-item id="order"></o2s-order-item>
+  
+  <o2s-photo-filter id="filteredPhotos" input="{{$.resource.response.photos}}">
+    <aux-filter-context name="options" value="{{$.order.options}}"></aux-filter-context>
+  </o2s-photo-filter>
+
+  <aux-map id="photoIds" input="{{$.filteredPhotos.objects}}" expression="element.url"></aux-map>
+  
+  <aux-layers>
+    <o2s-slider ids="{{$.photoIds.objects}}"></o2s-slider>
+    <aux-layout modules="3" class="o2s-product-store">
+      <aux-layout-cell width="1" gap="2">
+        <h1><%= resource.title %></h1>
+    
+        <p class="lead"><%= number_to_currency resource.price %></p>
+    
+        <%= resource.info %>
+
+        <%= form_for current_order.items.build, url: [store_essential_selling, :api, current_order, :items], remote: true do |form| %>
+          <% resource.available_charachteristics.each do |c| %>
+            <%= form.collection_select :option_ids,
+              c.options & resource.available_options,
+              :id, :title, {prompt: 'Select'}, {value: raw("{{ $.order.options[#{c.id}] }}")}
+            %>
+          <% end %>
+
+          <%= form.collection_check_boxes :extra_ids, resource.extras, :id, :title do |b| %>
+            <p>
+              <%= b.label {b.check_box + ' ' + b.text} %>
+              <br>
+              <%= b.object.info %>
+            </p>
+        
+          <% end %>
+
+          <%= form.number_field :count %>
+      
+          <%= form.submit %>
+        <% end %>
+      </aux-layout-cell>
+    </aux-layout>
+  </aux-layers>
+</template>

@@ -1,0 +1,54 @@
+<link rel="import" href="../polymer/polymer.html">
+<script src="../requestAnimationFrame-polyfill/requestAnimationFrame.js"></script>
+
+<polymer-element name="aux-layers" enabled>
+  <template>
+    <style type="text/css" media="screen">
+      :host {
+        display: block;
+/*        position: relative;*/
+      }
+      
+      :host([enabled]) ::content > * {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+      }
+    </style>
+    <content id="content"></content>
+  </template>
+  <script>
+    Polymer({
+      publish: {
+        enabled: {
+          value: true,
+          reflect: true
+        }
+      },
+
+      attached: function(){
+        this.detectMaxHeight()
+      },
+      
+      detectMaxHeight: function(){
+        
+        var elements = Array.prototype.filter.call(this.$.content.getDistributedNodes(), function(element){
+          return element.nodeType == element.ELEMENT_NODE
+        }).map(function(element){
+          return element.clientHeight
+        })
+        
+        if (this.enabled) {
+          this.style.height = Math.max.apply(null, elements.concat(0)) + 'px'
+        }
+        else {
+          this.style.height = ""
+        }
+        
+        requestAnimationFrame(this.detectMaxHeight.bind(this))
+      }
+    });
+  </script>
+
+</polymer-element>

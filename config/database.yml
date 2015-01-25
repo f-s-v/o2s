@@ -82,3 +82,5 @@ test:
 production:
   <<: *default
   database: o2s_production
+  username: o2s
+  password: <%= ENV['O2S_DATABASE_PASSWORD'] %>

@@ -1,0 +1,66 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="aux-layout-cell.html">
+
+<polymer-element name="aux-parent" attributes="match element" hidden>
+  <script>
+    (function(){
+      var findParent = function(element, selector){
+        if (element.matches && element.matches(selector)) {
+          return element
+        }
+        else {
+          if ((element.parentNode && element.parentNode.nodeName != "#document") || element.host) {
+            return findParent(element.parentNode || element.host, selector)
+          }
+          else {
+            return undefined
+          }
+        }
+      }
+      Polymer({
+        attached: function(){
+          var host = this.parentNode.host
+          this.element = findParent(this.parentNode.host.parentNode || this.parentNode.host.host, this.match)
+        }
+      });
+    })()
+  </script>
+</polymer-element>
+
+
+<polymer-element name="aux-layout" attributes="modules vcenter hcenter" horizontal layout start wrap>
+  <template>
+    <style type="text/css" media="screen">
+      :host {
+        width: 100%;
+      }
+    </style>
+    <aux-parent id="parentCell" match="aux-layout-cell"></aux-parent>
+    <aux-parent id="parentLayout" match="aux-layout"></aux-parent>
+    <content></content>
+  </template>
+
+  <script>
+    Polymer({
+      observe: {
+        'modules': 'calculateModules',
+        '$.parentCell.element.width': 'calculateModules',
+        '$.parentLayout.element.calculatedModules': 'calculateModules'
+      },
+      calculateModules: function(){
+        var adaptive = function(object, s){
+
+          var capitalize = function(s){ return s[0].toUpperCase() + s.slice(1) }
+          return object[s]
+        }
+
+        this.calculatedModules =  this.modules ||
+          this.$.parentCell.element && this.$.parentCell.element.width ||
+          this.$.parentLayout.element && this.$.parentLayout.element.calculatedModules
+      },
+      domReady: function(){
+        this.calculateModules()
+      }
+    });
+  </script>
+</polymer-element>

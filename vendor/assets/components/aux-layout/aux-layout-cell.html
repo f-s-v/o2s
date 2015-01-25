@@ -1,0 +1,61 @@
+<polymer-element name="aux-layout-cell">
+  <template>
+    <aux-parent match="aux-layout" id="layout"></aux-parent>
+    <style type="text/css" media="screen">
+      :host {
+        box-sizing: border-box;
+      }
+    </style>
+    <content></content>
+  </template>
+
+  <script>
+    Polymer({
+      publish: {
+        width: {reflect: true},
+        gap: {reflect: true},
+      },
+      
+      observe: {
+        'width': 'flexBasisStyleChanged',
+        '$.layout.element.calculatedModules': 'modulesChanged',
+        'gap': 'gapStyleChanged',
+      },
+      
+      modulesChanged: function(){
+        this.gapStyleChanged()
+        this.flexBasisStyleChanged()
+      },
+
+      gapStyleChanged: function(){
+        this.style.removeProperty('margin-left')
+        if (
+          this.gap &&
+          this.$.layout.element &&
+          this.$.layout.element.calculatedModules
+        ) {
+          var gap = this.gap
+          var modules = this.$.layout.element.calculatedModules
+          this.style.setProperty('margin-left', 'calc(' + gap + ' * 100% / ' + modules + ')')
+        }
+      },
+
+      flexBasisStyleChanged: function(){
+        var modules = this.$.layout.element.calculatedModules
+        var width = this.width
+        if (this.isDimensionsCanSet()) this.setWidth(width)
+      },
+
+      isDimensionsCanSet: function(){
+        return this.width && this.$.layout.element && this.$.layout.element.calculatedModules
+      },
+
+      setWidth: function(width){
+        var modules = this.$.layout.element.calculatedModules
+        this.style.setProperty('-ms-flex-basis', 'calc(' + width + ' * 100% / ' + modules + ')')
+        this.style.setProperty('-webkit-flex-basis', 'calc(' + width + ' * 100% / ' + modules + ')')
+        this.style.setProperty('flex-basis', 'calc(' + width + ' * 100% / ' + modules + ')')
+      }
+    });
+  </script>
+</polymer-element>

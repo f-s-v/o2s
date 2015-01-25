@@ -1,0 +1,13 @@
+<!--
+  = require core-ajax/core-ajax
+-->
+
+<polymer-element name="aux-resource" extends="core-ajax">
+  <script>
+    Polymer({
+      auto: true,
+      params: '{"format":"json"}',
+      handleAs: 'json'
+    })
+  </script>
+</polymer-element>

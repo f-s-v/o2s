@@ -1,0 +1,20 @@
+{
+  "name": "aux-layers",
+  "version": "0.0.0",
+  "description": "HTML Elements as layers (Polymer based)",
+  "license": "MIT",
+  "main": "dist/aux-layers.html",
+  "keywords": [
+    "polymer",
+    "web-components"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.1",
+    "requestAnimationFrame-polyfill": "*"
+  }
+}

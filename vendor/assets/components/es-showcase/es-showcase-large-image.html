@@ -1,0 +1,48 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../core-image/core-image.html">
+<script src="../backgroundCheck/background-check.js"></script>
+
+<polymer-element name="es-showcase-large-image" attributes="image">
+  <template>
+    <style type="text/css" media="screen">
+      :host {
+        display: block;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+      }
+      
+      core-image {
+        max-width: 100%;
+      }
+      
+      #content {
+        height: 100%;
+      }
+      
+      .subtitle {
+        max-width: 50%;
+      }
+    </style>
+
+    <div id="content" layout vertical center center-justified>
+      <section class="title">
+        <content select="[title]"></content>
+      </section>
+      <section class="subtitle">
+        <content select="[subtitle]"></content>
+      </section>
+    </div>
+
+  </template>
+  <script>
+    Polymer({
+      imageChanged: function(){
+        this.style.backgroundImage = "url(" + this.image + ")"
+      }
+    });
+  </script>
+
+</polymer-element>
+<em></em>

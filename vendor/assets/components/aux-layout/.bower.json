@@ -1,0 +1,31 @@
+{
+  "name": "aux-layout",
+  "description": "Grid Layout Element",
+  "license": "MIT",
+  "main": "dist/aux-layout.html",
+  "keywords": [
+    "polymer",
+    "web-components"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.1"
+  },
+  "devDependencies": {
+    "paper-slider": "Polymer/paper-slider#~0.5.2"
+  },
+  "homepage": "https://github.com/aux-elements/aux-layout",
+  "_release": "bf5af1b94f",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "bf5af1b94f0fa1228bca3351b242dd2d0d35f1c8"
+  },
+  "_source": "git://github.com/aux-elements/aux-layout.git",
+  "_target": "master",
+  "_originalSource": "aux-elements/aux-layout"
+}

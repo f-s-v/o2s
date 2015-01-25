@@ -1,0 +1,21 @@
+<!--
+  = require aux-filter/aux-filter
+-->
+<polymer-element name="o2s-photo-filter" extends="aux-filter">
+  <script>
+    Polymer({
+      filterMethod: function(element) {
+        return !_.difference(
+          element.option_ids,
+          _.compact(
+            this.context.options.map(
+              function(a){
+                return parseInt(a)
+              }
+            )
+          )
+        ).length
+      }
+    })
+  </script>
+</polymer-element>

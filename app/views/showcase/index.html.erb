@@ -1,0 +1,23 @@
+<% @showcase_blocks.each do |block| %>
+  <% style = block.style.dasherize %>
+  <es-showcase-<%= style %> image="<%= uploadcare_url block.images %>" video="<%= block.video_url %>">
+    <% if block.title.present? %>
+      <h1 title>
+        <%= block.title %>
+      </h1>
+    <% end %>
+    <% if block.subtitle.present? %>
+      <h2 subtitle>
+        <%= block.subtitle %>
+      </h2>
+    <% end %>
+    <% if block.text.present? %>
+      <content>
+        <%= block.text %>
+      </content>
+    <% end %>
+    <% if block.link_text.present? && block.link.present? %>
+      <%= link_to block.link_text, block.link %>
+    <% end %>
+  </es-showcase-<%= style %>>
+<% end %>

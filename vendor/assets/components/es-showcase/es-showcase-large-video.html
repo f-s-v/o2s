@@ -1,0 +1,38 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../google-youtube/google-youtube.html">
+
+<polymer-element name="es-showcase-large-video" attributes="video">
+  <template>
+    <style type="text/css" media="screen">
+      :host {
+        display: block;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .content {
+      }
+      
+      .subtitle {
+        max-width: 50%;
+      }
+      
+    </style>
+
+    <div class="content" layout vertical center center-justified>
+      <section class="title">
+        <content select="[title]"></content>
+      </section>
+      <section class="subtitle">
+        <content select="[subtitle]"></content>
+      </section>
+    </div>
+
+    <google-youtube videoid="{{video}}" chromeless width="100%" height="100%" fit></google-youtube>
+  </template>
+  <script>
+    Polymer({
+    });
+  </script>
+
+</polymer-element>

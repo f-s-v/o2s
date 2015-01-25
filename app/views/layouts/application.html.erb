@@ -4,11 +4,28 @@
   <title>O2s</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= html_import_tag 'application'%>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body unresolved class="background-sensitive">
 
-<%= yield %>
+<aux-layers>
+  <div>
+    <%= yield %>
+  </div>
+  <aux-layout modules="12">
+    <aux-layout-cell width="4">
+      <%= link_to t('.shop'), root_path %>
+      <%= link_to t('.about'), root_path %>
+      <%= link_to t('.blog'), root_path %>
+    </aux-layout-cell>
+    <aux-layout-cell width="3" gap="4" >
+      <%= link_to image_tag('osome2some.svg'), root_path %>
+    </aux-layout-cell>
+  </aux-layout>
+</aux-layers>
+
+<!-- <aux-background-check targets=".background-sensitive" images=".background-image"></aux-background-check> -->
 
 </body>
 </html>
